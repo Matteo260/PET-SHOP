@@ -187,24 +187,47 @@
       <a href="PET SHOP PROJECT.html" class="back-btn">← Back to Home</a>
     </div>
 
-    <!-- RIGHT SIDE -->
-    <div class="checkout-right">
-      <div class="checkout-summary">
-        <h3>Your Order</h3>
-        <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
-          <img src="product2.png" alt="Royal Canin Maxi Adult 10kg">
-          <div>
-            <h4>Royal Canin Maxi Adult 10kg</h4>
-            <p>₱2,950.00</p>
-          </div>
-        </div>
-        <hr>
-        <p>Subtotal: ₱2,950.00</p>
-        <p>Shipping: ₱150.00</p>
-        <div class="total">Total: ₱3,100.00</div>
-      </div>
-    </div>
+   <!-- RIGHT SIDE -->
+<div class="checkout-right">
+  <div class="checkout-summary" id="order-summary">
+    <!-- JS will load product info here -->
   </div>
+</div>
+
+<script>
+  const product = JSON.parse(localStorage.getItem('selectedProduct'));
+  const summary = document.getElementById('order-summary');
+
+  if (product) {
+    const shipping = 150;
+    const subtotal = product.price;
+    const total = subtotal + shipping;
+
+    summary.innerHTML = `
+      <h3>Your Order</h3>
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+        <img src="${product.image}" alt="${product.name}">
+        <div>
+          <h4>${product.name}</h4>
+          <p>₱${subtotal.toLocaleString()}</p>
+        </div>
+      </div>
+      <hr>
+      <p>Subtotal: ₱${subtotal.toLocaleString()}</p>
+      <p>Shipping: ₱${shipping.toLocaleString()}</p>
+      <div class="total">Total: ₱${total.toLocaleString()}</div>
+    `;
+  } else {
+    summary.innerHTML = `
+      <h3>Your Order</h3>
+      <p>No product selected. Please go back and choose a product.</p>
+      <a href="PET SHOP PROJECT.html" class="back-btn">← Back to Home</a>
+    `;
+  }
+</script>
+
+
+  
 
 </body>
 </html>

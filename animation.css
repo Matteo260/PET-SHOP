@@ -108,10 +108,23 @@ nav ul li a:hover {
 }
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   padding: 0 40px 60px;
 }
+
+@media (max-width: 1024px) {
+  .products {
+    grid-template-columns: repeat(3, 1fr); /* 3 per row on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .products {
+    grid-template-columns: repeat(1, 1fr); /* 1 per row on mobile */
+  }
+}
+
 .product-card {
   border: 1px solid #eee;
   border-radius: 10px;
