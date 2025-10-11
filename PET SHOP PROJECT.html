@@ -4,12 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>🐾 Pet Culture</title>
-
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Poppins', sans-serif; background-color: #fff; }
 
-    /* Header */
     header {
       display: flex; justify-content: space-between; align-items: center;
       padding: 15px 60px; background: white;
@@ -22,7 +20,6 @@
     nav ul li a { text-decoration: none; color: #333; font-weight: 500; transition: color 0.3s; }
     nav ul li a:hover { color: #6c3bb6; }
 
-    /* Hero Section */
     .hero {
       background-color: #6c3bb6; color: white; text-align: center; padding: 80px 20px;
     }
@@ -38,7 +35,6 @@
     }
     .search-bar button:hover { background-color: #ffae42; }
 
-    /* Product Section */
     .section-title {
       text-align: center; font-size: 22px; color: #6c3bb6;
       margin-top: 40px; margin-bottom: 20px; font-weight: 700;
@@ -59,14 +55,12 @@
     .product-card h3 { font-size: 16px; margin: 10px 0 5px; color: #333; }
     .product-card p { color: #6c3bb6; font-weight: 600; }
 
-    /* Like Button */
     .like-btn {
       position: absolute; top: 10px; right: 10px; font-size: 22px;
       color: #ccc; cursor: pointer; transition: transform 0.2s, color 0.3s;
     }
     .like-btn.liked { color: #ff4b5c; transform: scale(1.2); }
 
-    /* Product Buttons */
     .product-actions { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
     .buy-btn {
       color: white; border: none; outline: none;
@@ -87,7 +81,6 @@
       .buy-btn { width: 100%; max-width: 250px; }
     }
 
-    /* Modal */
     .modal {
       display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
       background: rgba(0,0,0,0.5); justify-content: center; align-items: center;
@@ -122,7 +115,6 @@
     .modal-buttons button:hover { opacity: 0.8; }
     .close { position: absolute; top: 15px; right: 25px; font-size: 22px; color: #333; cursor: pointer; }
 
-    /* Cart Sidebar */
     #cartSidebar {
       position: fixed; right: -400px; top: 0; width: 350px; height: 100%;
       background: #fff; box-shadow: -2px 0 8px rgba(0,0,0,0.2);
@@ -169,7 +161,6 @@
     .back-btn:hover { background: #777; }
   </style>
 </head>
-
 <body>
   <header>
     <div class="logo"><a href="PET SHOP PROJECT.html">🐾 Pet Culture</a></div>
@@ -292,8 +283,7 @@
   </div>
 </div>
 
-
-  <!-- Product Modal -->
+  <!-- Modal -->
   <div class="modal" id="productModal">
     <div class="close" onclick="closeModal()">✖</div>
     <div class="modal-content">
@@ -403,13 +393,28 @@
       updateCartSidebar();
     }
 
+    // ✅ UPDATED Buy Now — stores correct image and product
     function buyNow() {
+      // If currentProduct is not set (like from direct Buy Now buttons)
+      if (!currentProduct || !currentProduct.name) {
+        const productCard = event.target.closest('.product-card');
+        const name = productCard.querySelector('h3').textContent;
+        const price = parseFloat(productCard.querySelector('p').textContent.replace('₱', '').replace(',', ''));
+        const img = productCard.querySelector('img').src;
+        currentProduct = { name, price, img };
+      }
+
+      localStorage.setItem('selectedProduct', JSON.stringify({
+        name: currentProduct.name,
+        price: currentProduct.price,
+        image: currentProduct.img,
+        qty: qty
+      }));
+
       window.location.href = "checkout.html";
     }
 
-    function closeCart() {
-      cartSidebar.classList.remove("active");
-    }
+    function closeCart() { cartSidebar.classList.remove("active"); }
 
     function toggleLike(el, event) {
       event.stopPropagation();
@@ -420,3 +425,4 @@
   </script>
 </body>
 </html>
+

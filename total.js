@@ -100,7 +100,7 @@ function buyNow() {
       qty: qty
     }));
 
-    // Clear any previous cart checkout
+    // Remove other cart-based checkouts
     localStorage.removeItem('checkoutCart');
   }
 
@@ -110,11 +110,12 @@ function buyNow() {
 // =========================
 // 🔸 BUY NOW (FROM CARD)
 // =========================
-function buyProduct(name, price, image) {
+function buyProduct(name, price, img) {
+  // ✅ FIXED: correctly store the selected product data
   localStorage.setItem('selectedProduct', JSON.stringify({
-    name,
-    price,
-    image,
+    name: name,
+    price: price,
+    image: img,  // consistent with checkout.html variable
     qty: 1
   }));
 
@@ -210,7 +211,7 @@ function checkoutCart() {
     return;
   }
 
-  // Save entire cart for checkout
+  // Save the entire cart for checkout
   localStorage.setItem('checkoutCart', JSON.stringify(cart));
 
   // Remove any single selected product
