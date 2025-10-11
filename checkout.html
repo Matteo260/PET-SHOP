@@ -7,51 +7,70 @@
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background: #fff;
       margin: 0;
-      padding: 0;
+      padding: 30px 0;
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      justify-content: center;
+      background:
+        /* Top left stripes */
+        linear-gradient(135deg, #ffc107 10%, transparent 10%) top left,
+        linear-gradient(135deg, #ffc107 10%, transparent 10%) 15px top left,
+        linear-gradient(135deg, #ffc107 10%, transparent 10%) 30px top left,
+        /* Top right stripes */
+        linear-gradient(-135deg, #ffc107 10%, transparent 10%) top right,
+        linear-gradient(-135deg, #ffc107 10%, transparent 10%) 15px top right,
+        linear-gradient(-135deg, #ffc107 10%, transparent 10%) 30px top right,
+        /* Bottom gradient */
+        linear-gradient(to top right, #ffcc33, white 60%);
+      background-repeat: no-repeat;
+      background-size:
+        20px 20px, 20px 20px, 20px 20px,
+        20px 20px, 20px 20px, 20px 20px,
+        100% 100%;
+      background-blend-mode: multiply;
     }
 
     .checkout-container {
       display: flex;
       width: 90%;
       max-width: 1000px;
-      margin-top: 30px;
-      border: 1px solid #eee;
-      border-radius: 10px;
+      border: 2px solid #ddd;
+      border-radius: 12px;
       overflow: hidden;
+      background: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     .checkout-left, .checkout-right {
-      padding: 20px;
+      padding: 25px;
     }
 
     .checkout-left {
       flex: 2;
-      border-right: 1px solid #eee;
+      border-right: 2px solid #eee;
       background: #fafafa;
     }
 
     .checkout-right {
       flex: 1;
       background: #fff;
+      border-left: 2px solid #eee;
     }
 
     h3 {
       color: #333;
       margin-top: 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
     }
 
-    input, select, textarea {
+    input, select {
       width: 100%;
       padding: 10px;
       margin-top: 5px;
       margin-bottom: 15px;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 6px;
       font-size: 14px;
     }
 
@@ -61,24 +80,33 @@
     }
 
     .checkout-summary {
-      border: 1px solid #eee;
+      border: 1px solid #ddd;
       padding: 15px;
       border-radius: 10px;
+      background: #fafafa;
     }
 
     .checkout-summary img {
       width: 70px;
-      border-radius: 5px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
     }
 
     .checkout-summary h4 {
       font-size: 14px;
       margin: 0;
+      color: #333;
     }
 
     .checkout-summary p {
-      margin: 5px 0;
+      margin: 4px 0;
       font-size: 14px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 10px 0;
     }
 
     .total {
@@ -86,6 +114,7 @@
       font-size: 18px;
       text-align: right;
       margin-top: 10px;
+      color: #333;
     }
 
     .checkout-btn {
@@ -93,11 +122,12 @@
       background: #6a4caf;
       color: white;
       border: none;
-      padding: 15px;
+      padding: 14px;
       border-radius: 8px;
       font-size: 16px;
       cursor: pointer;
       margin-top: 15px;
+      transition: background 0.3s;
     }
 
     .checkout-btn:hover {
@@ -106,13 +136,17 @@
 
     .back-btn {
       display: inline-block;
-      margin-top: 10px;
+      margin-top: 15px;
       color: #6a4caf;
       text-decoration: none;
       font-weight: bold;
       font-size: 14px;
+      transition: color 0.3s;
     }
 
+    .back-btn:hover {
+      color: #4c2e8b;
+    }
   </style>
 </head>
 <body>
@@ -128,6 +162,9 @@
       <label>Country/Region</label>
       <select>
         <option>Philippines</option>
+        <option>United States</option>
+        <option>China</option>
+        <option>Russia</option>
       </select>
       <label>First Name</label>
       <input type="text" placeholder="First Name">
@@ -142,12 +179,12 @@
 
       <h3>Payment</h3>
       <label><input type="radio" name="payment" checked> Bank Deposit</label><br>
-      <small>BPI Bank — Account Name: Signore Nuelle Reyes — 0990-010-145</small><br><br>
+      <small>BPI Bank — Account Name: Satoshi Nakamoto — 0990-010-145</small><br><br>
       <label><input type="radio" name="payment"> E-wallet (GCash, PayMaya)</label><br>
       <label><input type="radio" name="payment"> Money Remittance (LBC, Palawan, Cebuana)</label>
 
       <button class="checkout-btn">Complete Order</button>
-      <a href="index.html" class="back-btn">← Back to Cart</a>
+      <a href="PET SHOP PROJECT.html" class="back-btn">← Back to Home</a>
     </div>
 
     <!-- RIGHT SIDE -->

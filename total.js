@@ -3,6 +3,8 @@ function openProduct(name, price, img) {
   modalTitle.textContent = name;
   modalPrice.textContent = '₱' + price.toFixed(2);
   modalImg.src = img;
+
+  modal.style.display = 'flex'; // make sure it's visible before animating
   modal.classList.remove('hide');
   modal.classList.add('show');
 }
@@ -12,8 +14,10 @@ function closeModal() {
   modal.classList.add('hide');
   setTimeout(() => {
     modal.style.display = 'none';
-  }, 300);
+  }, 300); // matches your CSS animation duration
 }
+
+// CART SIDEBAR
 let cartPanel = document.getElementById('cartPanel');
 let cartItems = document.getElementById('cartItems');
 let cartTotal = document.getElementById('cartTotal');
@@ -43,11 +47,11 @@ function closeCart() {
   cartPanel.classList.remove('show');
 }
 
-/* Open cart automatically after adding item */
+// Automatically open the cart after adding
 function addToCart() {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   cart.push({ ...currentProduct, qty });
   localStorage.setItem('cart', JSON.stringify(cart));
   closeModal();
-  showCart(); // 👈 Automatically open the cart after adding
+  showCart(); // 👈 Opens the cart automatically
 }
