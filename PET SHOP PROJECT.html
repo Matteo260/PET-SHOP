@@ -40,14 +40,23 @@
       margin-top: 40px; margin-bottom: 20px; font-weight: 700;
     }
     .products {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px; padding: 0 40px 60px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 0 40px 60px;
+      align-items: stretch;
     }
+
     .product-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       border: 1px solid #eee; border-radius: 10px; text-align: center;
       padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
       transition: 0.3s; cursor: pointer; position: relative;
+      min-height: 430px; /* Ensures uniform height */
     }
+
     .product-card:hover {
       transform: translateY(-5px); box-shadow: 0 5px 10px rgba(0,0,0,0.1);
     }
@@ -61,7 +70,13 @@
     }
     .like-btn.liked { color: #ff4b5c; transform: scale(1.2); }
 
-    .product-actions { display: flex; justify-content: center; gap: 10px; margin-top: 10px; }
+    .product-actions {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: auto;
+    }
+
     .buy-btn {
       color: white; border: none; outline: none;
       border-radius: 25px; padding: 8px 15px; font-weight: 600;
@@ -183,105 +198,158 @@
     </div>
   </section>
 
+<!-- ========== PRODUCTS SECTION ========== -->
   <h2 class="section-title">🐶 Royal Canin Product Sale</h2>
 
-<div class="products">
-  <!-- Product 1 -->
-  <div class="product-card" onclick="openProduct('Royal Canin Mini Adult 1.5kg', 810, 'product1.png')">
-    <div class="like-btn" onclick="toggleLike(this, event)">❤</div>
-    <img src="product1.png" alt="Royal Canin Mini Adult 1.5kg">
-    <h3>Royal Canin Mini Adult 1.5kg</h3>
-    <p>₱810.00</p>
-    <div class="product-actions">
-      <button class="buy-btn buy" onclick="event.stopPropagation(); buyNow()">Buy Now</button>
-      <button class="buy-btn add" onclick="event.stopPropagation(); addToCartDirect('Royal Canin Mini Adult 1.5kg', 810, 'product1.png')">Add to Cart</button>
-    </div>
-  </div>
+  <div class="products">
 
-  <!-- Product 2 -->
-  <div class="product-card" onclick="openProduct('Royal Canin Maxi Adult 10kg', 2950, 'product2.png')">
-    <div class="like-btn" onclick="toggleLike(this, event)">❤</div>
-    <img src="product2.png" alt="Royal Canin Maxi Adult 10kg">
-    <h3>Royal Canin Maxi Adult 10kg</h3>
-    <p>₱2,950.00</p>
-    <div class="product-actions">
-      <button class="buy-btn buy" onclick="event.stopPropagation(); buyNow()">Buy Now</button>
-      <button class="buy-btn add" onclick="event.stopPropagation(); addToCartDirect('Royal Canin Maxi Adult 10kg', 2950, 'product2.png')">Add to Cart</button>
+    <!-- Product 1 -->
+    <div class="product-card" onclick="openProduct('Royal Canin Mini Adult 1.5kg', 810, 'product1.png')">
+      <div class="like-btn" onclick="toggleLike(this, event)">❤</div>
+      <img src="product1.png" alt="Royal Canin Mini Adult 1.5kg">
+      <h3>Royal Canin Mini Adult 1.5kg</h3>
+      <p>₱810.00</p>
+      <div class="product-actions">
+        <button class="buy-btn buy">Buy Now</button>
+        <button class="buy-btn add">Add to Cart</button>
+      </div>
     </div>
-  </div>
 
-  <!-- Product 3 -->
-  <div class="product-card" onclick="openProduct('Royal Canin Shih Tzu Adult 1.5kg', 855, 'product3.png')">
-    <div class="like-btn" onclick="toggleLike(this, event)">❤</div>
-    <img src="product3.png" alt="Royal Canin Shih Tzu Adult 1.5kg">
-    <h3>Royal Canin Shih Tzu Adult 1.5kg</h3>
-    <p>₱855.00</p>
-    <div class="product-actions">
-      <button class="buy-btn buy" onclick="event.stopPropagation(); buyNow()">Buy Now</button>
-      <button class="buy-btn add" onclick="event.stopPropagation(); addToCartDirect('Royal Canin Shih Tzu Adult 1.5kg', 855, 'product3.png')">Add to Cart</button>
+    <!-- Product 2 -->
+    <div class="product-card" onclick="openProduct('Royal Canin Maxi Adult 10kg', 2950, 'product2.png')">
+      <div class="like-btn" onclick="toggleLike(this, event)">❤</div>
+      <img src="product2.png" alt="Royal Canin Maxi Adult 10kg">
+      <h3>Royal Canin Maxi Adult 10kg</h3>
+      <p>₱2,950.00</p>
+      <div class="product-actions">
+        <button class="buy-btn buy">Buy Now</button>
+        <button class="buy-btn add">Add to Cart</button>
+      </div>
     </div>
-  </div>
 
-  <!-- Product 4 -->
-  <div class="product-card" onclick="openProduct('Royal Canin Medium Adult 4kg', 1434, 'product4.png')">
-    <div class="like-btn" onclick="toggleLike(this, event)">❤</div>
-    <img src="product4.png" alt="Royal Canin Medium Adult 4kg">
-    <h3>Royal Canin Medium Adult 4kg</h3>
-    <p>₱1,434.00</p>
-    <div class="product-actions">
-      <button class="buy-btn buy" onclick="event.stopPropagation(); buyNow()">Buy Now</button>
-      <button class="buy-btn add" onclick="event.stopPropagation(); addToCartDirect('Royal Canin Medium Adult 4kg', 1434, 'product4.png')">Add to Cart</button>
+    <!-- Product 3 -->
+    <div class="product-card" onclick="openProduct('Royal Canin Shih Tzu Adult 1.5kg', 855, 'product3.png')">
+      <div class="like-btn" onclick="toggleLike(this, event)">❤</div>
+      <img src="product3.png" alt="Royal Canin Shih Tzu Adult 1.5kg">
+      <h3>Royal Canin Shih Tzu Adult 1.5kg</h3>
+      <p>₱855.00</p>
+      <div class="product-actions">
+        <button class="buy-btn buy">Buy Now</button>
+        <button class="buy-btn add">Add to Cart</button>
+      </div>
     </div>
-  </div>
 
-  <!-- Product 5 -->
-  <div class="product-card" onclick="openProduct('Royal Canin Urinary 2kg', 1190, 'product5.png')">
-    <div class="like-btn" onclick="toggleLike(this, event)">❤</div>
-    <img src="product5.png" alt="Royal Canin Urinary 2kg">
-    <h3>Royal Canin Urinary 2kg</h3>
-    <p>₱1,190.00</p>
-    <div class="product-actions">
-      <button class="buy-btn buy" onclick="event.stopPropagation(); buyNow()">Buy Now</button>
-      <button class="buy-btn add" onclick="event.stopPropagation(); addToCartDirect('Royal Canin Urinary 2kg', 1190, 'product5.png')">Add to Cart</button>
+    <!-- Product 4 -->
+    <div class="product-card" onclick="openProduct('Royal Canin Medium Adult 4kg', 1434, 'product4.png')">
+      <div class="like-btn" onclick="toggleLike(this, event)">❤</div>
+      <img src="product4.png" alt="Royal Canin Medium Adult 4kg">
+      <h3>Royal Canin Medium Adult 4kg</h3>
+      <p>₱1,434.00</p>
+      <div class="product-actions">
+        <button class="buy-btn buy">Buy Now</button>
+        <button class="buy-btn add">Add to Cart</button>
+      </div>
     </div>
-  </div>
 
-  <!-- Product 6 -->
-  <div class="product-card" onclick="openProduct('Royal Canin Kitten 400g', 68, 'product6.png')">
-    <div class="like-btn" onclick="toggleLike(this, event)">❤</div>
-    <img src="product6.png" alt="Royal Canin Kitten 400g">
-    <h3>Royal Canin Kitten 400g</h3>
-    <p>₱68.00</p>
-    <div class="product-actions">
-      <button class="buy-btn buy" onclick="event.stopPropagation(); buyNow()">Buy Now</button>
-      <button class="buy-btn add" onclick="event.stopPropagation(); addToCartDirect('Royal Canin Kitten 400g', 68, 'product6.png')">Add to Cart</button>
+    <!-- Product 5 -->
+    <div class="product-card" onclick="openProduct('Royal Canin Urinary 2kg', 1190, 'product5.png')">
+      <div class="like-btn" onclick="toggleLike(this, event)">❤</div>
+      <img src="product5.png" alt="Royal Canin Urinary 2kg">
+      <h3>Royal Canin Urinary 2kg</h3>
+      <p>₱1,190.00</p>
+      <div class="product-actions">
+        <button class="buy-btn buy">Buy Now</button>
+        <button class="buy-btn add">Add to Cart</button>
+      </div>
     </div>
-  </div>
 
-  <!-- Product 7 -->
-  <div class="product-card" onclick="openProduct('Royal Canin Indoor27 2kg', 1110, 'product7.png')">
-    <div class="like-btn" onclick="toggleLike(this, event)">❤</div>
-    <img src="product7.png" alt="Royal Canin Indoor27 2kg">
-    <h3>Royal Canin Indoor27 2kg</h3>
-    <p>₱1,110.00</p>
-    <div class="product-actions">
-      <button class="buy-btn buy" onclick="event.stopPropagation(); buyNow()">Buy Now</button>
-      <button class="buy-btn add" onclick="event.stopPropagation(); addToCartDirect('Royal Canin Indoor27 2kg', 1110, 'product7.png')">Add to Cart</button>
+    <!-- Product 6 -->
+    <div class="product-card" onclick="openProduct('Royal Canin Hairball Care 2kg', 1250, 'product6.png')">
+      <div class="like-btn" onclick="toggleLike(this, event)">❤</div>
+      <img src="product6.png" alt="Royal Canin Hairball Care 2kg">
+      <h3>Royal Canin Hairball Care 2kg</h3>
+      <p>₱1,250.00</p>
+      <div class="product-actions">
+        <button class="buy-btn buy">Buy Now</button>
+        <button class="buy-btn add">Add to Cart</button>
+      </div>
     </div>
-  </div>
 
-  <!-- Product 8 -->
-  <div class="product-card" onclick="openProduct('Royal Canin Coat Care All Sizes 85g', 74, 'product8.png')">
-    <div class="like-btn" onclick="toggleLike(this, event)">❤</div>
-    <img src="product8.png" alt="Royal Canin Coat Care All Sizes 85g">
-    <h3>Royal Canin Coat Care All Sizes 85g</h3>
-    <p>₱74.00</p>
-    <div class="product-actions">
-      <button class="buy-btn buy" onclick="event.stopPropagation(); buyNow()">Buy Now</button>
-      <button class="buy-btn add" onclick="event.stopPropagation(); addToCartDirect('Royal Canin Coat Care All Sizes 85g', 74, 'product8.png')">Add to Cart</button>
+    <!-- Product 7 -->
+    <div class="product-card" onclick="openProduct('Royal Canin Kitten 4kg', 2250, 'product7.png')">
+      <div class="like-btn" onclick="toggleLike(this, event)">❤</div>
+      <img src="product7.png" alt="Royal Canin Kitten 4kg">
+      <h3>Royal Canin Kitten 4kg</h3>
+      <p>₱2,250.00</p>
+      <div class="product-actions">
+        <button class="buy-btn buy">Buy Now</button>
+        <button class="buy-btn add">Add to Cart</button>
+      </div>
     </div>
-  </div>
-</div>
+
+    <!-- Product 8 -->
+    <div class="product-card" onclick="openProduct('Royal Canin Indoor Adult 2kg', 1150, 'product8.png')">
+      <div class="like-btn" onclick="toggleLike(this, event)">❤</div>
+      <img src="product8.png" alt="Royal Canin Indoor Adult 2kg">
+      <h3>Royal Canin Indoor Adult 2kg</h3>
+      <p>₱1,150.00</p>
+      <div class="product-actions">
+        <button class="buy-btn buy">Buy Now</button>
+        <button class="buy-btn add">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Product 9 -->
+    <div class="product-card" onclick="openProduct('Royal Canin Mini Puppy 1.5kg', 860, 'product9.png')">
+      <div class="like-btn" onclick="toggleLike(this, event)">❤</div>
+      <img src="product9.png" alt="Royal Canin Mini Puppy 1.5kg">
+      <h3>Royal Canin Mini Puppy 1.5kg</h3>
+      <p>₱860.00</p>
+      <div class="product-actions">
+        <button class="buy-btn buy">Buy Now</button>
+        <button class="buy-btn add">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Product 10 -->
+    <div class="product-card" onclick="openProduct('Royal Canin Persian Adult 2kg', 1450, 'product10.png')">
+      <div class="like-btn" onclick="toggleLike(this, event)">❤</div>
+      <img src="product10.png" alt="Royal Canin Persian Adult 2kg">
+      <h3>Royal Canin Persian Adult 2kg</h3>
+      <p>₱1,450.00</p>
+      <div class="product-actions">
+        <button class="buy-btn buy">Buy Now</button>
+        <button class="buy-btn add">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Product 11 -->
+    <div class="product-card" onclick="openProduct('Orijen Senior Dry Dog Food 2kg', 1515, 'product11.png')">
+      <div class="like-btn" onclick="toggleLike(this, event)">❤</div>
+      <img src="product11.png" alt="Orijen Senior Dry Dog Food 2kg">
+      <h3>Orijen Senior Dry Dog Food 2kg</h3>
+      <p>₱1,515.00</p>
+      <div class="product-actions">
+        <button class="buy-btn buy">Buy Now</button>
+        <button class="buy-btn add">Add to Cart</button>
+      </div>
+    </div>
+
+    <!-- Product 12 -->
+    <div class="product-card" onclick="openProduct('Acana Grass-Fed Lamb For Dogs All Life Stages 17kg', 5955, 'product12.png')">
+      <div class="like-btn" onclick="toggleLike(this, event)">❤</div>
+      <img src="product12.png" alt="Acana Grass-Fed Lamb For Dogs All Life Stages 17kg">
+      <h3>Acana Grass-Fed Lamb For Dogs All Life Stages 17kg</h3>
+      <p>₱5,955.00</p>
+      <div class="product-actions">
+        <button class="buy-btn buy">Buy Now</button>
+        <button class="buy-btn add">Add to Cart</button>
+      </div>
+    </div>
+
+
+
+
 
   <!-- Modal -->
   <div class="modal" id="productModal">
