@@ -106,7 +106,7 @@ nav ul li a:hover {
   text-align: center;
   font-size: 22px;
   color: #6c3bb6;
-  margin-top: 60px; /* 🔧 Added more spacing after violet header */
+  margin-top: 60px;
   margin-bottom: 25px;
   font-weight: 700;
   display: flex;
@@ -115,7 +115,7 @@ nav ul li a:hover {
   gap: 8px;
 }
 
-/* 🔧 Uniform Product Grid */
+/* Product Grid */
 .products {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -125,29 +125,21 @@ nav ul li a:hover {
   justify-items: center;
 }
 
-/* Responsive grid adjustments */
+/* Responsive */
 @media (max-width: 1280px) {
-  .products {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  .products { grid-template-columns: repeat(4, 1fr); }
 }
 @media (max-width: 1024px) {
-  .products {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  .products { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 768px) {
-  .products {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .products { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 480px) {
-  .products {
-    grid-template-columns: repeat(1, 1fr);
-  }
+  .products { grid-template-columns: repeat(1, 1fr); }
 }
 
-/* 🔧 Uniform Card Layout */
+/* Product Card */
 .product-card {
   border: 1px solid #eee;
   border-radius: 12px;
@@ -161,7 +153,7 @@ nav ul li a:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 370px; /* consistent height */
+  height: 400px;
 }
 .product-card:hover {
   transform: translateY(-6px);
@@ -169,7 +161,7 @@ nav ul li a:hover {
 }
 .product-card img {
   width: 100%;
-  height: 180px;
+  height: 160px;
   object-fit: contain;
   margin-bottom: 10px;
 }
@@ -177,9 +169,21 @@ nav ul li a:hover {
   font-size: 15px;
   color: #333;
   font-weight: 600;
-  margin-bottom: 5px;
-  flex-grow: 0;
+  margin-bottom: 6px;
 }
+
+/* 📝 Product Description */
+.product-card .description {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  min-height: 38px; /* keeps height consistent */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 💰 Price */
 .product-card p {
   color: #6c3bb6;
   font-weight: 700;
@@ -201,7 +205,7 @@ nav ul li a:hover {
   transform: scale(1.2);
 }
 
-/* 🐾 Buttons at Bottom */
+/* 🐾 Buttons */
 .product-actions {
   display: flex;
   justify-content: center;
@@ -218,18 +222,12 @@ nav ul li a:hover {
   transition: all 0.3s ease;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
-
-/* 🟡 Add to Cart */
 .buy-btn.add {
   background: linear-gradient(90deg, #f08de6, #f7923e, #ffe42a);
 }
-
-/* 🟣 Buy Now */
 .buy-btn.buy {
   background: linear-gradient(90deg, #8c58de, #5b3cbc, #9505db);
 }
-
-/* ✨ Hover */
 .buy-btn:hover {
   background: linear-gradient(90deg, #8b05de, #e805de, #c63bbb);
   transform: scale(1.05);
@@ -279,8 +277,6 @@ nav ul li a:hover {
   font-size: 18px;
   margin-top: 15px;
 }
-
-/* 🛒 Checkout Button */
 #checkoutBtn {
   display: block;
   width: 100%;
@@ -301,8 +297,6 @@ nav ul li a:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(247, 147, 30, 0.4);
 }
-
-/* 🔙 Back Button */
 .back-btn {
   display: block;
   width: 100%;
